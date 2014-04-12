@@ -32,3 +32,10 @@ def lista_recetas(request):
         {'datos':recetas},
         context_instance=RequestContext(request))
         
+
+def detalle_receta(request, id_receta):
+    dato = get_object_or_404(Receta, pk=id_receta)
+    comentarios = Comentario.objects.filter(receta=dato)
+    return render_to_response('receta.html',
+        {'receta':dato, 'comentarios':comentarios},
+        context_instance=RequestContext(request))
