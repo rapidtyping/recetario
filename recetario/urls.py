@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     url(r'^$', 'principal.views.inicio'),
     url(r'^sobre/$', 'principal.views.sobre'),
     url(r'^usuarios/$', 'principal.views.usuarios'),
+    url(r'^recetas/$', 'principal.views.lista_recetas'),
 
 
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
