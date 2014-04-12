@@ -12,3 +12,9 @@ def lista_bebidas(request):
 def sobre(request):
     html = "<html><body>Proyecto de ejemplo en MDW</body></html>"
     return HttpResponse(html)
+    
+
+def inicio(request):
+    recetas = Receta.objects.all()
+    return render_to_response('inicio.html',{ 'recetas': recetas})
+    

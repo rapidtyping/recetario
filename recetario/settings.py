@@ -109,7 +109,8 @@ ROOT_URLCONF = 'recetario.urls'
 WSGI_APPLICATION = 'recetario.wsgi.application'
 
 TEMPLATE_DIRS = (
-   os.path.join(RUTA_PROYECTO, '../templates')
+#   os.path.join(RUTA_PROYECTO, '../templates')
+    os.path.join(RUTA_PROYECTO, '../recetario/plantillas')
         # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
