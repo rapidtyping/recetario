@@ -1,3 +1,4 @@
+# -*- encoding:utf-8 -*-
 # Django settings for recetario project.
 import os
 RUTA_PROYECTO = os.path.dirname(os.path.realpath(__file__))
@@ -158,3 +159,10 @@ LOGGING = {
         },
     }
 }
+
+# Configuraciones para enviar mensajes usango gmail
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'remitente@gmail.com' # cuenta que enviará el mensaje
+EMAIL_HOST_PASSWORD = 'clavedelcorreo'
+EMAIL_PORT = 587

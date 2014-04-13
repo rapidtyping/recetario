@@ -11,7 +11,7 @@ urlpatterns = patterns('',
     url(r'^usuarios/$', 'principal.views.usuarios'),
     url(r'^recetas/$', 'principal.views.lista_recetas'),
     url(r'^receta/(?P<id_receta>\d+)$', 'principal.views.detalle_receta'),
-
+    url(r'^contacto/$','principal.views.contacto'),
 
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
