@@ -1,15 +1,11 @@
-<header>
-    <nav>
-        <ul>
-            <li><a href='/'>Inicio</a></li>
-            <li><a href='/usuarios'>Usuarios registrados</a></li>
-            <li><a href='/Recetas'>Recetas</a></li>
-            <li><a href='/Sobre'>Sobre</a></li>
-        </ul>
-    </nav>
-</header>
-<section>
+{% extends 'base.html' %}
+{% block titulo %} Usuarios registrados {% endblock %}
+
+{% block encabezado %}
 <h1>Colaboradores</h1>
+{% endblock %}
+
+{% block contenido %}
 <ul>
     {% for dato in usuarios %}
     <li>{{dato.username}} - <em>{{dato.email}}</em>
@@ -21,6 +17,8 @@
             {% endfor %}
         </ul>
     </li>
+    {% empty %}
+    <li>No hay usuarios registrados, aún.</li>
     {% endfor %}
 </ul>
-</section>
+{% endblock %}
