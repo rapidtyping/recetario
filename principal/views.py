@@ -5,7 +5,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404
 from django.core.mail import EmailMessage
-
+from .forms import RecetaForm, ComentarioForm
 
 def lista_bebidas(request):
     bebidas = Bebida.objects.all()
@@ -59,3 +59,30 @@ def contacto(request):
     return render_to_response('contactoform.html',
                 {'formulario':formulario},
                 context_instance=RequestContext(request))
+
+
+def nueva_receta(request):
+    if request.method=='POST':
+        formulario = RecetaForm(request.POST, request.FILES)    
+        if formulario.is_valid():
+            formulario.save()
+            return HttpResponseRedirect('/recetas')
+    else:
+        formulario = RecetaForm()
+    return render_to_response('recetaform.html',
+                {'formulario':formulario},
+                context_instance = RequestContext(request))
+
+
+def nuevo_comentario(request):
+    if request.method == 'POST':
+        formulario = ComentarioForm(request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            return HttpResponseRedirect('/recetas')
+    else:
+        formulario = ComentarioForm()
+    return render_to_response('comentarioform.html',
+                {'formulario':formulario},    
+                context_instance = RequestContext(request))
+                    
